@@ -1,3 +1,25 @@
+#nav {
+  display: block;
+  display: inline-block;
+  width: 98vw;
+  margin: 6px;
+}
+
+.high-score {
+  float: left;
+}
+
 .timer {
   float: right;
 }
+
+#quiz-area {
+  text-align: center;
+  margin-left: 33%;
+  margin-right: 33%;
+}
+
+p {
+  font-size: larger;
+}
+
