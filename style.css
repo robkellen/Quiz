@@ -38,6 +38,8 @@ body {
 
 .topnav-right {
   float: right;
+  background-color: blue;
+  color: white;
 }
 
 /* Responsive navigation menu */
