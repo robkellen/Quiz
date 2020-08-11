@@ -42,9 +42,9 @@ var score = 0;
 var questionIndex = 0;
 
 //setting variables for manipulation
-var timer = document.getElementById("timer");
-var startQuiz = document.getElementById("startQuiz");
-var mainDiv = document.getElementById("mainDiv");
+var timer = document.querySelector("#timer");
+var startQuiz = document.querySelector("#startQuiz");
+var mainDiv = document.querySelector("#mainDiv");
 var timeRemaining = 76;
 var interval = 0;
 var timePenalty = 10;
@@ -72,21 +72,21 @@ function renderQuestions(questionIndex) {
   mainDiv.innerHTML = "";
   createNewUL.innerHTML = "";
   // for loop to add text from questions array
-  for (let i = 0; i < questions.length; i++) {
+  for (var i = 0; i < questions.length; i++) {
     var questionTitle = questions[questionIndex].question;
-    var answerOption = questions[questionIndex].answer;
+    var questionOptions = questions[questionIndex].options;
     mainDiv.textContent = questionTitle;
   }
-
   //to create list of options and append corresponding answer choices for each question
-  answerOption.forEach(function (newItem) {
-    var answerItem = document.createElement("li");
-    answerItem.textContent = newItem;
+  questionOptions.forEach(function (item) {
+    var listItem = document.createElement("li");
+    listItem.textContent = item;
     mainDiv.appendChild(createNewUL);
-    createNewUL.appendChild(answerItem);
-    answerItem.addEventListener("click", (compare));
+    createNewUL.appendChild(listItem);
+    //listItem.addEventListener("click", (console.log));
   })
 }
+
 
 //create compare function
 
