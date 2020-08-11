@@ -2,38 +2,38 @@
 var questions = [
   {
     question: "Which of the following is not a type of loop?",
-    options: ["1", "2", "3", "4"],
-    answer: "2",
+    options: ["word1", "word2", "word3", "word4"],
+    answer: "word3",
   },
   {
     question: "What does DOM stand for?",
-    options: ["1", "2", "3", "4"],
-    answer: "2",
+    options: ["word1", "word2", "word3", "word4"],
+    answer: "word3",
   },
   {
     question: "What do you mean I don't have a dog?",
-    options: ["1", "2", "3", "4"],
-    answer: "2",
+    options: ["word1", "word2", "word3", "word4"],
+    answer: "word3",
   },
   {
     question: "Why did the chicken cross the road?",
-    options: ["1", "2", "3", "4"],
-    answer: "2",
+    options: ["word1", "word2", "word3", "word4"],
+    answer: "word3",
   },
   {
     question: "Is abba-zabba truly you're only friend?",
-    options: ["1", "2", "3", "4"],
-    answer: "2",
+    options: ["word1", "word2", "word3", "word4"],
+    answer: "word3",
   },
   {
     question: "What does CSS stand for?",
-    options: ["1", "2", "3", "4"],
-    answer: "2",
+    options: ["word1", "word2", "word3", "word4"],
+    answer: "word3",
   },
   {
     question: "What happens after this last question?",
-    options: ["1", "2", "3", "4"],
-    answer: "2",
+    options: ["word1", "word2", "word3", "word4"],
+    answer: "word3",
   },
 ];
 
