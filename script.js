@@ -83,12 +83,39 @@ function renderQuestions(questionIndex) {
     listItem.textContent = item;
     mainDiv.appendChild(createNewUL);
     createNewUL.appendChild(listItem);
-    //listItem.addEventListener("click", (console.log));
+    listItem.addEventListener("click", (compare));
   })
 }
 
+//Comparing if option selected by user was correct/incorrect
+function compare (e) {
+  var selection = event.target;
+  if (selection.matches("li")) {
+    
+    var createNewDiv = document.createElement("div");
+    createNewDiv.setAttribute("id", "createNewDiv");
+    //condition = answer is correct
+    if (selection.textContent == questions[questionIndex].answer) {
+      score++;
+      createNewDiv.textContent = "You are correct!";      
+    } else {
+      //condition = answer is incorrect
+      createNewDiv.textContent = "Incorrect!  The correct answer is: " + questions[questionIndex].answer;
+      //deduct 10 seconds from timer
+      timeRemaining = timeRemaining - timePenalty;
+    }
+    
+  }
+}
+//to determine which question the user is on
+questionIndex++;
 
-//create compare function
+if (questionIndex >= questions.length) {
+  //gameOver if user just answered last question
+  gameOver();
+  createNewDiv.textContent = "You Finished! You answered " + score + "/" + questions.length + "correct.";
+}
+
 
 
 //determine if last question has been answered
