@@ -9,33 +9,34 @@
     <title>Code Quiz</title>
   </head>
   <body>
-    <!-- Top navigation -->
-<div class="topnav">
+  <!-- Top navbar -->
+  <div class="topnav">
 
-  <!-- Centered link -->
+  <!-- Start new game link; centered -->
   <div class="topnav-centered">
     <a href="#home" class="active">Start New Game</a>
   </div>
   
-  <!-- Left-aligned links (default) -->
-  <a id="high-score">High Score</a>
+  <!-- High Score link; aligned-left -->
+    <button id="high-score" href="HighSCores.html">High Score</button>
   
-  <!-- Right-aligned links -->
-  <div class="topnav-right">
-    <a id="time" class="timer">Time:</a>
-  </div>
+    <!-- Timer; aligned right -->
+    <div class="topnav-right">
+      <a id="timer"></a>
+    </div>
   
-</div>
+    </div>
 
   <div class="container">
-    <main id="intro">
-      <h1>Coding Quiz Challenge</h1>
-      <h3>Try to answer all of the questions correctly before time runs out.</h3>
-      <h3 id="beware">Beware, 10 seconds will be deducted from the timer for every question you answer incorrect!</h3>
-      <button id="start-quiz"">Start!</button>
-    </main>
-  </div>  
 
-    <script src="script.js"></script>
+    <div id="mainDiv">
+      <h1>Coding Quiz</h1>
+      <h3>Try to answer all of the questions correctly before the timer in the top right corner runs out. <span id="beware">Beware, 10 seconds will be deducted from the timer for every question you answer incorrect!</span></h3>
+      <ul>answerSelections</ul>
+      <button id="startQuiz"">Start!</button>
+    </div>
+  
+  </div>  
+  <script src="script.js"></script>
   </body>
 </html>
