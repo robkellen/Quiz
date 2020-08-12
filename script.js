@@ -2,38 +2,28 @@
 var questions = [
   {
     question: "Which of the following is not a type of loop?",
-    options: ["word1", "word2", "word3", "word4"],
-    answer: "word3",
+    options: ["1. While", "2. Do-while", "3. Each", "4. For"],
+    answer: "3. Each",
   },
   {
     question: "What does DOM stand for?",
-    options: ["word1", "word2", "word3", "word4"],
-    answer: "word3",
+    options: ["1. Data Organization Method", "2. Document Object Model", "3. Digital Office Meeting", "4. Differential Of Mediums"],
+    answer: "2. Document Object Model",
   },
   {
-    question: "What do you mean I don't have a dog?",
-    options: ["word1", "word2", "word3", "word4"],
-    answer: "word3",
+    question: "Arrays in Javascript can be used to store ___?",
+    options: ["1. Booleans", "2. Numbers", "3. Other Arrays", "4. All of the Above"],
+    answer: "4. All of the Above",
   },
   {
-    question: "Why did the chicken cross the road?",
-    options: ["word1", "word2", "word3", "word4"],
-    answer: "word3",
-  },
-  {
-    question: "Is abba-zabba truly you're only friend?",
-    options: ["word1", "word2", "word3", "word4"],
-    answer: "word3",
+    question: "Which of these is NOT a programming language?",
+    options: ["1. Java", "2. Ruby", "3. Banana", "4. Python"],
+    answer: "3. Banana",
   },
   {
     question: "What does CSS stand for?",
-    options: ["word1", "word2", "word3", "word4"],
-    answer: "word3",
-  },
-  {
-    question: "What happens after this last question?",
-    options: ["word1", "word2", "word3", "word4"],
-    answer: "word3",
+    options: ["1. Cascading Sheet Style", "2. Cascading Style Sheet", "3. Common Sense Sequencing", "4. Camel Style Sentencing"],
+    answer: "2. Cascading Style Sheet",
   },
 ];
 
@@ -49,6 +39,12 @@ var timeRemaining = 76;
 var interval = 0;
 var timePenalty = 10;
 var createNewUL = document.createElement("ul");
+
+//link to high score function
+var viewHighScores = document.querySelector("#high-score");
+  viewHighScores.addEventListener("click", function(){
+    highScores();
+  })
 
 //add event listener for timer on click of start button
 startQuiz.addEventListener("click", function (e) {
@@ -82,6 +78,7 @@ function renderQuestions(questionIndex) {
     var listItem = document.createElement("li");
     listItem.textContent = item;
     mainDiv.appendChild(createNewUL);
+    createNewUL.setAttribute("id", "question-ul");
     createNewUL.appendChild(listItem);
     listItem.addEventListener("click", compare);
   });
@@ -163,10 +160,16 @@ function gameOver() {
   createNewInput.textContent = "";
 
   mainDiv.appendChild(createNewInput);
+
+  var createNewUL = document.createElement("ul")
+  createNewUL.setAttribute("id", "createNewUl");
+  createNewUL.textContent = "";
+  mainDiv.appendChild(createNewUL);
   //submit
   var createNewSubmit = document.createElement("submit");
   createNewSubmit.setAttribute("type", "submit");
   createNewSubmit.setAttribute("id", "submit");
+  createNewSubmit.setAttribute("class", "submit");
   createNewSubmit.textContent = "Submit";
 
   mainDiv.appendChild(createNewSubmit);
@@ -228,6 +231,7 @@ function highScores() {
   }
   //creating 'Clear Scores' button & appending
   var clearBtn = document.createElement("button");
+  clearBtn.setAttribute("id", "clearBtn");
   clearBtn.innerHTML ="Clear Scores";
   mainDiv.appendChild(clearBtn);
 
