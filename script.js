@@ -185,12 +185,13 @@ function gameOver() {
       }
       console.log(finalScore);
       var allScores = localStorage.getItem("allScores");
-      if (allScores === "") {
+      if (allScores === null) {
         allScores = [];
       } else {
         allScores = JSON.parse(allScores);
       }
       allScores.push(finalScore);
+
       var newScore = JSON.stringify(allScores);
       localStorage.setItem("allScores", newScore);
       
@@ -210,27 +211,48 @@ function highScores() {
   createNewH1.setAttribute("id", "createNewH1")
   createNewH1.textContent = "High Scores";
   mainDiv.appendChild(createNewH1);
+  
+  //retrieving scores from local storage
+  var showAllScores = localStorage.getItem("allScores");
+  showAllScores = JSON.parse(showAllScores);
 
+  //creating list and appending them
+  if (showAllScores !== null) {
+    for (let i = 0; i < showAllScores.length; i++) {
+      var createNewLi = document.createElement("li");
+      createNewLi.setAttribute("id", "scoreList");
+      createNewLi.textContent = showAllScores[i].initials + " " + showAllScores[i].score;
+      mainDiv.appendChild(createNewLi);
+      
+    }
+  }
   //creating 'Clear Scores' button & appending
   var clearBtn = document.createElement("button");
   clearBtn.innerHTML ="Clear Scores";
   mainDiv.appendChild(clearBtn);
 
+
+
   //creating event listenter for 'Clear Scores' button
   clearBtn.addEventListener("click", function(){
     localStorage.clear();
+    document.getElementById("scoreList").remove();
   });
 
   var startOverBtn = document.createElement("button");
   startOverBtn.innerHTML = "Start Over";
   mainDiv.appendChild(startOverBtn);
 
+  startOverBtn.addEventListener("click", function(){
+    location.reload();
+
+  })
+
 
   
   
   
   
-  //location.reload();
   
 
 }
