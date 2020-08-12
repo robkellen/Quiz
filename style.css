@@ -6,16 +6,15 @@ body {
 .topnav {
   position: relative;
   overflow: hidden;
-  background-color: white;
+  background-color: lightgray;
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
-
 }
 
 .topnav-right {
   float: right;
-  background-color: blue;
+  background-color: red;
   color: white;
 }
 
@@ -26,36 +25,58 @@ body {
 }
 
 ul {
-  list-style-type: none ;
+  list-style-type: none;
 }
 
 li {
   background-color: blue;
   margin-top: 10px;
-  margin-bottom: 10px ;
+  margin-bottom: 10px;
   padding: 5px 15px;
   width: 80%;
   font-size: 18px;
   color: white;
+  border-radius: 5px;
 }
 
-.submit {
-    background-color: blue;
-    margin-top: 25px;
-    margin-bottom: 40px ;
-    padding: 5px 15px;
-    width: 80%;
-    font-size: 18px;
-    color: white;
+li:hover {
+  opacity: 0.6;
+}
+
+#submit {
+  background-color: blue;
+  margin-top: 25px;
+  margin-bottom: 40px;
+  padding: 5px 15px;
+  width: 80%;
+  font-size: 18px;
+  color: white;
+  border-radius: 5px;
+}
+
+#submit:hover {
+  opacity: 0.6;
+}
+
+#createNewDiv {
+  margin-top: 30px;
+  font-style: italic;
+  font-weight: 100;
+  color: rgba(153, 152, 152, 0.87);
+}
+
+#scoreList {
+  list-style-type: decimal;
 }
 
 /* Responsive navigation menu */
 @media screen and (max-width: 600px) {
-  .topnav a, .topnav-right {
+  .topnav a,
+  .topnav-right {
     float: none;
     display: block;
   }
-  
+
   .topnav-centered a {
     position: relative;
     top: 0;
@@ -65,9 +86,9 @@ li {
 }
 
 .container {
-    text-align: center;
-    padding-left: 33.33%;
-    padding-right: 33.33%;
+  text-align: center;
+  padding-left: 33.33%;
+  padding-right: 33.33%;
 }
 
 #beware {
@@ -86,6 +107,10 @@ p {
   padding-top: 10px;
 }
 
+.high-score:hover {
+  opacity: 80%;
+}
+
 #clearBtn {
   margin: 10px;
 }
@@ -93,4 +118,3 @@ p {
 #startOverBtn {
   margin: 10px;
 }
-
