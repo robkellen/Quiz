@@ -123,12 +123,120 @@ function compare(e) {
     renderQuestions(questionIndex);
   }
   mainDiv.appendChild(createNewDiv);
+
+}
+//create and append game over page
+function gameOver() {
+  mainDiv.innerHTML = "";
+  timer.innerHTML = "";
+  //Game Over header
+  var createNewH1 = document.createElement("h1");
+  createNewH1.setAttribute("id", "createNewH1")
+  createNewH1.textContent = "Game Over!"
+
+  mainDiv.appendChild(createNewH1);
+
+  var createP = document.createElement("p");
+  createP.setAttribute("id", "createP");
+  
+  mainDiv.appendChild(createP);
+
+  //Time remaining turned into final score
+  if (interval >= 0) {
+    var endTime = timeRemaining;
+    var createP2 = document.createElement("p");
+    clearInterval(interval);
+    createP.textContent = "Your Score is: " + endTime;
+
+    mainDiv.appendChild(createP2);
+  }
+  //Label for initials input
+  var createNewLabel = document.createElement("label");
+  createNewLabel.setAttribute("id", "createNewLabel");
+  createNewLabel.textContent = "Enter your initials: ";
+
+  mainDiv.appendChild(createNewLabel);
+  //Input
+  var createNewInput = document.createElement("input");
+  createNewInput.setAttribute("type", "text");
+  createNewInput.setAttribute("id", "initials") ;
+  createNewInput.textContent = "";
+
+  mainDiv.appendChild(createNewInput);
+  //submit
+  var createNewSubmit = document.createElement("submit");
+  createNewSubmit.setAttribute("type", "submit");
+  createNewSubmit.setAttribute("id", "submit");
+  createNewSubmit.textContent = "Submit";
+
+  mainDiv.appendChild(createNewSubmit);
+  //adding event listener to submit to store initials/score to local storage
+  createNewSubmit.addEventListener("click", function(){
+    var initials = createNewInput.value;
+
+    if (initials === "") {
+      alert("No value entered!");
+      console.log("No value entered!")
+
+    } else {
+      var finalScore = {
+        initials: initials,
+        score: endTime
+      }
+      console.log(finalScore);
+      var allScores = localStorage.getItem("allScores");
+      if (allScores === "") {
+        allScores = [];
+      } else {
+        allScores = JSON.parse(allScores);
+      }
+      allScores.push(finalScore);
+      var newScore = JSON.stringify(allScores);
+      localStorage.setItem("allScores", newScore);
+      
+    }
+    highScores();
+  })
 }
 
-//determine if last question has been answered
 
-//create game over function
 
-//tally score
+function highScores() {
+  //clearing mainDiv contents
+  mainDiv.innerHTML = "";
 
-//create input for initials to store to local storage
+  //creating new H1
+  var createNewH1 = document.createElement("h1");
+  createNewH1.setAttribute("id", "createNewH1")
+  createNewH1.textContent = "High Scores";
+  mainDiv.appendChild(createNewH1);
+
+  //creating 'Clear Scores' button & appending
+  var clearBtn = document.createElement("button");
+  clearBtn.innerHTML ="Clear Scores";
+  mainDiv.appendChild(clearBtn);
+
+  //creating event listenter for 'Clear Scores' button
+  clearBtn.addEventListener("click", function(){
+    localStorage.clear();
+  });
+
+  var startOverBtn = document.createElement("button");
+  startOverBtn.innerHTML = "Start Over";
+  mainDiv.appendChild(startOverBtn);
+
+
+  
+  
+  
+  
+  //location.reload();
+  
+
+}
+
+
+
+
+
+
